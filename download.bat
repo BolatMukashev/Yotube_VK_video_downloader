@@ -1,0 +1,1 @@
+C:\Users\Astana\Desktop\MyPrograms\Yotube_VK_video_downloader\.venv\Scripts\python.exe C:\Users\Astana\Desktop\MyPrograms\Yotube_VK_video_downloader\main.py 
