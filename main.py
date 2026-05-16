@@ -16,9 +16,9 @@ def convert_playlist_to_direct(url):
         raise ValueError("Неверный URL: не заканчивается на 'video-'")
 
 video_url = input("Введите URL видео: ")  # Вводим ссылку вручную
-save_path = "C:/Users/Astana/Desktop/MyPrograms/Yotube_VK_video_downloader/result/%(title)s.%(ext)s"
+save_path = "C:/Users/Astana/Desktop/MyPrograms/Yotube_VK_video_downloader/result/%(title)s.mp4"
 
-command = f"yt-dlp --cookies-from-browser firefox -o \"{save_path}\" {convert_playlist_to_direct(video_url)}"
+command = f'yt-dlp --cookies-from-browser firefox -f "bestvideo+bestaudio/best" --merge-output-format mp4 -o "{save_path}" {convert_playlist_to_direct(video_url)}'
 
 try:
     subprocess.run(command, shell=True, check=True)  # Запускаем в терминале
