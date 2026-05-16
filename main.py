@@ -18,9 +18,17 @@ def convert_playlist_to_direct(url):
 video_url = input("Введите URL видео: ")  # Вводим ссылку вручную
 save_path = "C:/Users/Astana/Desktop/MyPrograms/Yotube_VK_video_downloader/result/%(title)s.mp4"
 
-command = f'yt-dlp --cookies-from-browser firefox -f "bestvideo+bestaudio/best" --merge-output-format mp4 -o "{save_path}" {convert_playlist_to_direct(video_url)}'
+command = (
+    f'yt-dlp --cookies-from-browser firefox '
+    f'-f "bestvideo+bestaudio/best" '
+    f'--merge-output-format mp4 '
+    f'--postprocessor-args "ffmpeg:-c:a aac -b:a 192k" '
+    f'-o "{save_path}" '
+    f'{convert_playlist_to_direct(video_url)}'
+)
 
 try:
     subprocess.run(command, shell=True, check=True)  # Запускаем в терминале
 except subprocess.CalledProcessError as e:
     print(f"Ошибка: {e}")
+
